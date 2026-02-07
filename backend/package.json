@@ -8,6 +8,7 @@
   "copyright": "© 2025 Real time location tracking system for pets. All rights reserved. Developed by AnimeshBaral.",
   "scripts": {
     "build": "nest build",
+    "render-build": "npm install --include=dev && npm run build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start": "nest start",
     "start:dev": "nest start --watch",
