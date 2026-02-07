@@ -201,7 +201,7 @@ export const LeafletMapComponent: React.FC<LeafletMapProps> = ({
             return (
               <Polygon
                 key={geofence.id}
-                positions={geofence.polygonCoordinates}
+                positions={geofence.polygonCoordinates as [number, number][]}
                 pathOptions={{
                   color: geofence.color || '#9333EA',
                   fillColor: geofence.color || '#9333EA',
