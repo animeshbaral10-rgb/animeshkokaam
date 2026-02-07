@@ -1,0 +1,163 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 35 60% 97%;
+    --foreground: 260 30% 20%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 260 30% 20%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 260 30% 20%;
+
+    --primary: 262 83% 58%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 174 62% 47%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 35 30% 92%;
+    --muted-foreground: 260 15% 45%;
+
+    --accent: 28 100% 55%;
+    --accent-foreground: 0 0% 100%;
+
+    --success: 152 76% 42%;
+    --success-foreground: 0 0% 100%;
+
+    --warning: 45 100% 51%;
+    --warning-foreground: 45 100% 15%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 260 20% 88%;
+    --input: 260 20% 88%;
+    --ring: 262 83% 58%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 262 50% 98%;
+    --sidebar-foreground: 260 30% 20%;
+    --sidebar-primary: 262 83% 58%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 262 30% 94%;
+    --sidebar-accent-foreground: 260 30% 20%;
+    --sidebar-border: 260 20% 88%;
+    --sidebar-ring: 262 83% 58%;
+
+    /* Custom tokens */
+    --online: 152 76% 42%;
+    --offline: 260 10% 60%;
+    --inactive: 45 100% 51%;
+    
+    /* Gradient tokens */
+    --gradient-primary: linear-gradient(135deg, hsl(262 83% 58%), hsl(280 80% 60%));
+    --gradient-secondary: linear-gradient(135deg, hsl(174 62% 47%), hsl(160 70% 45%));
+    --gradient-accent: linear-gradient(135deg, hsl(28 100% 55%), hsl(45 100% 51%));
+    --gradient-hero: linear-gradient(135deg, hsl(262 50% 98%), hsl(35 60% 97%));
+  }
+
+  .dark {
+    --background: 260 30% 8%;
+    --foreground: 35 30% 95%;
+
+    --card: 260 25% 12%;
+    --card-foreground: 35 30% 95%;
+
+    --popover: 260 25% 12%;
+    --popover-foreground: 35 30% 95%;
+
+    --primary: 262 83% 65%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 174 62% 50%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 260 20% 18%;
+    --muted-foreground: 260 15% 60%;
+
+    --accent: 28 100% 58%;
+    --accent-foreground: 0 0% 100%;
+
+    --success: 152 76% 45%;
+    --success-foreground: 0 0% 100%;
+
+    --warning: 45 100% 51%;
+    --warning-foreground: 45 100% 15%;
+
+    --destructive: 0 72% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 260 20% 22%;
+    --input: 260 20% 22%;
+    --ring: 262 83% 65%;
+
+    --sidebar-background: 260 25% 10%;
+    --sidebar-foreground: 35 30% 95%;
+    --sidebar-primary: 262 83% 65%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 260 25% 16%;
+    --sidebar-accent-foreground: 35 30% 95%;
+    --sidebar-border: 260 20% 22%;
+    --sidebar-ring: 262 83% 65%;
+
+    --online: 152 76% 45%;
+    --offline: 260 10% 50%;
+    --inactive: 45 100% 51%;
+    
+    /* Gradient tokens */
+    --gradient-primary: linear-gradient(135deg, hsl(262 83% 65%), hsl(280 80% 68%));
+    --gradient-secondary: linear-gradient(135deg, hsl(174 62% 50%), hsl(160 70% 48%));
+    --gradient-accent: linear-gradient(135deg, hsl(28 100% 58%), hsl(45 100% 54%));
+    --gradient-hero: linear-gradient(135deg, hsl(260 25% 10%), hsl(260 30% 8%));
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+}
+
+@layer components {
+  .status-online {
+    @apply bg-[hsl(var(--online))] text-[hsl(var(--success-foreground))];
+  }
+  
+  .status-offline {
+    @apply bg-[hsl(var(--offline))] text-foreground;
+  }
+  
+  .status-inactive {
+    @apply bg-[hsl(var(--inactive))] text-[hsl(var(--warning-foreground))];
+  }
+
+  .card-elevated {
+    @apply bg-card rounded-lg border border-border shadow-sm;
+  }
+
+  .nav-link {
+    @apply text-muted-foreground hover:text-foreground transition-colors duration-200;
+  }
+
+  .nav-link-active {
+    @apply text-foreground font-medium;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
