@@ -93,7 +93,7 @@ export default function HomePage() {
             </div>
             <h3 className="text-lg font-semibold mb-2">Live Location</h3>
             <p className="text-muted-foreground">
-              Track your pet's location in real-time with GPS precision.
+              Track your pet&apos;s location in real-time with GPS precision.
             </p>
           </div>
           
