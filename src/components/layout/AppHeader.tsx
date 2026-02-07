@@ -18,7 +18,7 @@ import { useToast } from '@/hooks/use-toast';
 import { SettingsDialog } from '@/components/settings/SettingsDialog';
 import { NotificationBell } from '@/components/notifications/NotificationBell';
 
-const navItems = [
+const navItems: { label: string; path: string; icon: any; adminOnly?: boolean }[] = [
   { label: 'Dashboard', path: '/dashboard', icon: LayoutDashboard },
   { label: 'Pets & Devices', path: '/pets-devices', icon: PawPrint },
   { label: 'Geofence', path: '/geofence', icon: MapPin },
