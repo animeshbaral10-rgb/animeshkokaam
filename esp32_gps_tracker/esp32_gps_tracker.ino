@@ -1,4 +1,5 @@
 #include <WiFi.h>
+#include <WiFiClientSecure.h>
 #include <HTTPClient.h>
 #include <ArduinoJson.h>
 #include <TinyGPS++.h>
@@ -6,7 +7,7 @@
 // ============ CONFIGURATION ============
 #define WIFI_SSID       "anjanabaral_2.4"
 #define WIFI_PASSWORD   "9801036652Naya@"
-#define BACKEND_URL     "http://192.168.1.81:3000"
+#define BACKEND_URL     "https://pettracking-backend.onrender.com/locations/ingest"
 #define DEVICE_ID       "ESP32-GPS-01"
 #define SEND_INTERVAL   10000 
 
@@ -78,9 +79,13 @@ void loop() {
 void sendLocationToBackend() {
   if (WiFi.status() != WL_CONNECTED) return;
 
+  WiFiClientSecure client;
+  client.setInsecure();  // Skip SSL cert verification (needed for Render's HTTPS)
+
   HTTPClient http;
-  http.begin(BACKEND_URL);
+  http.begin(client, BACKEND_URL);
   http.addHeader("Content-Type", "application/json");
+  http.setTimeout(15000);  // 15 second timeout (Render free tier can cold-start)
 
   StaticJsonDocument<256> doc;
   doc["deviceId"] = DEVICE_ID;
